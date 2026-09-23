@@ -50,18 +50,17 @@ Recommendation
 
 ### Login
 
-![Tatva Login](screenshots/login.png)
+<img width="1120" height="724" alt="image" src="https://github.com/user-attachments/assets/3ab9a970-7c20-478d-a926-011618f047b5" />
+
 
 ### Upload Ingredient List
 
-![Ingredient Upload](screenshots/upload.png)
+<img width="1110" height="702" alt="image" src="https://github.com/user-attachments/assets/2a92fcb9-7c86-4e9f-ba80-855c80230577" />
+
 
 ### Analysis Result
+<img width="1103" height="712" alt="image" src="https://github.com/user-attachments/assets/a9fcf818-fb64-4394-85ed-81fa623b1c2c" />
 
-![Analysis Result](screenshots/result.png)
-
-> Add the three screenshots to a `screenshots/` folder in the repository
-> using the names shown above.
 
 ## 🛠️ Tech Stack
 
@@ -121,53 +120,9 @@ Tatva-Ingredient-Simplifier/
 └── README.md
 ```
 
-## 🚀 Getting Started
-
-### 1. Clone the repository
-
-``` bash
-git clone https://github.com/tree120/tatva-ingredient-simplifier.git
-cd tatva-ingredient-simplifier
-```
-
-### 2. Set up the frontend
-
-``` bash
-cd Frontend
-npm install
-npm run dev
-```
 
 The Vite development server will start on the local development URL
 shown in the terminal.
-
-### 3. Set up the backend
-
-Open another terminal:
-
-``` bash
-cd backend
-npm install
-npm run dev
-```
-
-If the backend uses a different start script, use the script defined in
-`backend/package.json`.
-
-### 4. Configure environment variables
-
-Create a `.env` file in the backend directory and add the required
-configuration for:
-
-``` text
-Database connection
-JWT secret
-Gemini / Google AI API key
-Other application secrets
-```
-
-**Do not commit `.env` files or API keys to GitHub.** Add `.env` to
-`.gitignore`.
 
 ## 🔍 How the AI Analysis Works
 
