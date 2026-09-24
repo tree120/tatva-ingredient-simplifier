@@ -79,7 +79,7 @@ Recommendation
 
 ### AI
 
--   Google Gemini Vision / Generative AI
+-  Groq Vision AI / Generative AI
 
 ### Authentication
 
