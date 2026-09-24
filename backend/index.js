@@ -29,9 +29,9 @@ app.get("/health", (req, res) => {
   res.json({ status: "OK", timestamp: new Date() });
 });
 
-console.log("Gemini key loaded:", !!process.env.GEMINI_API_KEY);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 FoodLens Server running on http://localhost:${PORT}`);
+  console.log(`FoodLens Server running on http://localhost:${PORT}`);
 });
