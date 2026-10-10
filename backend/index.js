@@ -22,6 +22,8 @@ app.use(cors({
   credentials: true
 }));
 
+
+
 app.use(express.json());
 
 // Serve uploaded ingredient images statically
