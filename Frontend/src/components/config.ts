@@ -1,0 +1,1 @@
+export const API_URL = "https://tatva-backend-0omw.onrender.com";

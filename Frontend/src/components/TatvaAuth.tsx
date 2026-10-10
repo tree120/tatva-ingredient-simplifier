@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { API_URL} from './config';
 import { useNavigate } from "react-router-dom";
 import {
   User,
@@ -44,22 +45,7 @@ const parseJwt = (token: string): JwtPayload | null => {
   }
 };
 
-// Simulation mock JWT generator
-const createMockJwt = (payload: JwtPayload): string => {
-  const header = { alg: "HS256", typ: "JWT" };
-  const toBase64Url = (obj: object): string =>
-    window
-      .btoa(JSON.stringify(obj))
-      .replace(/=/g, "")
-      .replace(/\+/g, "-")
-      .replace(/\//g, "_");
 
-  const encodedHeader = toBase64Url(header);
-  const encodedPayload = toBase64Url(payload);
-  const mockSignature = "sZk91T_TatvaSecuredSignatureToken_Xq92";
-
-  return `${encodedHeader}.${encodedPayload}.${mockSignature}`;
-};
 
 export default function TavaAuth() {
   const navigate = useNavigate();
@@ -84,38 +70,7 @@ export default function TavaAuth() {
     }
   }, [navigate]);
 
-  // const handleAuthSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setErrorMessage("");
-
-  //   if (!username.trim() || !password.trim()) {
-  //     setErrorMessage("Please enter both username and password.");
-  //     return;
-  //   }
-
-  //   setIsLoading(true);
-
-  //   setTimeout(() => {
-  //     const now = Math.floor(Date.now() / 1000);
-  //     const tokenPayload: JwtPayload = {
-  //       sub: username.toLowerCase().replace(/\s+/g, "_"),
-  //       username: username,
-  //       email: isSignUp ? email : `${username.toLowerCase()}@tatvafood.com`,
-  //       role: username.toLowerCase().includes("admin") ? "Food Inspector" : "Consumer",
-  //       iat: now,
-  //       exp: now + 3600 * 24, // 24 hours
-  //     };
-
-  //     const token = createMockJwt(tokenPayload);
-
-  //     // Save token to localStorage
-  //     localStorage.setItem("tatva_jwt_token", token);
-  //     setIsLoading(false);
-
-  //     // Navigate to /ProductVerify route
-  //     navigate("/ProductVerify");
-  //   }, 500);
-  // };
+  
 
   // Handle Login & Sign-Up with live backend API
   const handleAuthSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -137,8 +92,9 @@ export default function TavaAuth() {
     try {
       // Determine endpoint based on mode
       const endpoint = isSignUp
-        ? "http://localhost:5000/api/auth/register"
-        : "http://localhost:5000/api/auth/login";
+          ? `${API_URL}/api/auth/register`
+          : `${API_URL}/api/auth/login`;
+   
 
       const payload = isSignUp
         ? { username, email, password }

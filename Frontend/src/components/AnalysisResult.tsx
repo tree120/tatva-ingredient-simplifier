@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   Search,
   Leaf,
@@ -125,7 +125,7 @@ export default function AnalysisResult({
   onScanAnother,
 }: AnalysisResultProps) {
   // Toggle between Safe and Unsafe preview for quick testing
-  const [currentData, setCurrentData] = useState<AnalysisData>(data);
+  const [currentData] = useState<AnalysisData>(data);
 
   const getStatusBadge = (status: string) => {
     switch (status) {

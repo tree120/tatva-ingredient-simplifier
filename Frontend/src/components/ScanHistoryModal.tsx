@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { API_URL} from './config';
 import {
   X,
   History,
@@ -41,7 +42,7 @@ export default function ScanHistoryModal({
     setLoading(true);
     try {
       const token = localStorage.getItem("tatva_jwt_token");
-      const res = await fetch("http://localhost:5000/api/products/history", {
+      const res = await fetch(`${API_URL}/api/products/history`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,7 +71,7 @@ export default function ScanHistoryModal({
     setDeletingId(id);
     try {
       const token = localStorage.getItem("tatva_jwt_token");
-      const res = await fetch(`http://localhost:5000/api/products/history/${id}`, {
+      const res = await fetch(`${API_URL}/api/products/history/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -103,7 +104,7 @@ export default function ScanHistoryModal({
 
     try {
       const token = localStorage.getItem("tatva_jwt_token");
-      const res = await fetch("http://localhost:5000/api/products/history", {
+      const res = await fetch(`${API_URL}/api/products/history`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

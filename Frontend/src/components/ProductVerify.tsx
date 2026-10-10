@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { API_URL} from './config';
 import { useNavigate } from "react-router-dom";
 import ScanHistoryModal from "./ScanHistoryModal";
 import {
@@ -115,7 +116,7 @@ export default function ProductVerify() {
 
       const token = localStorage.getItem("tatva_jwt_token");
 
-      const response = await fetch("http://localhost:5000/api/products/verify", {
+      const response = await fetch(`${API_URL}/api/products/verify`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
